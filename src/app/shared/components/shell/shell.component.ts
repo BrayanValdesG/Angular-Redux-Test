@@ -1,7 +1,4 @@
-import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-shell',
@@ -9,13 +6,6 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent {
-
-  isHandset$: Observable<boolean> = this.breakPointObserver.observe([Breakpoints.Handset])
-  .pipe(
-    map(result => result.matches),
-    shareReplay()
-  );
-
-  constructor(private breakPointObserver: BreakpointObserver) { }
+  @Input() isHandset$: any;
 
 }

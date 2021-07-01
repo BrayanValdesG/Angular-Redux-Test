@@ -6,6 +6,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 
 import { ConfigurationServiceService, ServiceHelperService } from './services';
 import { ShellComponent } from './components';
+import { ShellContainer } from './containers';
 
 const MODULES = [
   MaterialModule,
@@ -21,21 +22,26 @@ const COMPONENTS = [
   ShellComponent
 ];
 
+const CONTAINERS = [
+  ShellContainer
+];
+
 
 @NgModule({
   declarations: [
-    ...COMPONENTS
+    ...COMPONENTS,
+    ...CONTAINERS
   ],
   imports: [
     CommonModule,
     ...MODULES
   ], exports: [
-    ...COMPONENTS,
+    ...CONTAINERS,
     ...MODULES
   ],
   providers: [
     {
-      provide: "BASE_URL", useFactory: getBaseUrl 
+      provide: "BASE_URL", useFactory: getBaseUrl
     },
     ...SERVICES
   ]
