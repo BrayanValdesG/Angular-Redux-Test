@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Context } from '../models';
-import { endPoints } from '../Utils';
+import { endPoints } from '../utils';
 
 @Injectable({
   providedIn: 'root'

@@ -16,6 +16,7 @@ export class ServiceHelperService<T, P> {
     this.protocol = this.http;
     this.headers = new HttpHeaders();
     this.headers.append('Access-Control-Allow-Origin', '*');
+    this.headers.append('Content-Type', 'application/json');
     this.url = baseUrl;
   }
 
@@ -25,11 +26,11 @@ export class ServiceHelperService<T, P> {
     };
 
     if (remoteURL !== "") {
-      return this.protocol.get(remoteURL + requestURL, options)
+      return this.protocol.get<T>(remoteURL + requestURL, options)
       .pipe(map(this.extractData))
       .pipe(catchError(this.handleError));
     } else {
-      return this.protocol.get(this.url + requestURL, options)
+      return this.protocol.get<T>(this.url + requestURL, options)
       .pipe(map(this.extractData))
       .pipe(catchError(this.handleError));
     }
