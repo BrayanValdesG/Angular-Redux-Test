@@ -2,5 +2,6 @@
     "ServicesURI": {
         "Products": "/productos",
         "Categories": "/categorias"
-    }
+    },
+    "apiServer": "http://localhost:3000" 
 }

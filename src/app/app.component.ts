@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'Onnovacion';
 
   constructor(private serviceHelper: ServiceHelperService<Product[], any>, private serviceConfig: ConfigurationServiceService) {
-    this.serviceHelper.getData('', `http://localhost:3000${this.serviceConfig.settings.ServicesURI["Products"]}`).subscribe((productos: Product[]) => {
+    this.serviceHelper.getData('', `${this.serviceConfig.settings.apiServer}${this.serviceConfig.settings.ServicesURI["Products"]}`).subscribe((productos: Product[]) => {
       console.log(productos);
     });
 
