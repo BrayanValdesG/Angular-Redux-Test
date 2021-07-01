@@ -8,9 +8,9 @@ import { ConfigurationServiceService, ServiceHelperService } from '@shared/servi
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Onnovacion';
 
   constructor(private serviceHelper: ServiceHelperService<Product[], any>, private serviceConfig: ConfigurationServiceService) {
+
     this.serviceHelper.getData('', `${this.serviceConfig.settings.apiServer}${this.serviceConfig.settings.ServicesURI["Products"]}`).subscribe((productos: Product[]) => {
       console.log(productos);
     });
