@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { ServiceHelperService } from '@shared/services/service-helper.service';
 import { SharedModule } from '@shared/shared.module';
+import { ConfigurationServiceService, ServiceHelperService } from '@shared/services';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { SharedModule } from '@shared/shared.module';
     HttpClientModule,
     SharedModule
   ],
-  providers: [ServiceHelperService],
+  providers: [ServiceHelperService, ConfigurationServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

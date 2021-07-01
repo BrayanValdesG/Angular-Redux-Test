@@ -1,0 +1,6 @@
+{
+    "ServicesURI": {
+        "Products": "/productos",
+        "Categories": "/categorias"
+    }
+}

@@ -4,11 +4,16 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 
-import { ServiceHelperService } from './services';
+import { ConfigurationServiceService, ServiceHelperService } from './services';
 
 const MODULES = [
   MaterialModule,
   LayoutModule
+];
+
+const SERVICES = [
+  ServiceHelperService,
+  ConfigurationServiceService
 ];
 
 
@@ -24,7 +29,7 @@ const MODULES = [
     {
       provide: "BASE_URL", useFactory: getBaseUrl 
     },
-    ServiceHelperService
+    ...SERVICES
   ]
 })
 export class SharedModule { }

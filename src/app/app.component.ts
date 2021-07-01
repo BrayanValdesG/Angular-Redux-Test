@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from '@shared/models';
-import { ServiceHelperService } from '@shared/services';
+import { ConfigurationServiceService, ServiceHelperService } from '@shared/services';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +10,8 @@ import { ServiceHelperService } from '@shared/services';
 export class AppComponent {
   title = 'Onnovacion';
 
-  constructor(private serviceHelper: ServiceHelperService<Product[], any>) {
-    this.serviceHelper.getData('', 'http://localhost:3000/productos').subscribe((res) => {
+  constructor(private serviceHelper: ServiceHelperService<Product[], any>, private serviceConfig: ConfigurationServiceService) {
+    this.serviceHelper.getData('', `http://localhost:3000${this.serviceConfig.settings.ServicesURI["Products"]}`).subscribe((res) => {
       console.log(res);
     });
   }
