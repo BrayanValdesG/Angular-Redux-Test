@@ -23,7 +23,7 @@
       "estado": false,
       "precio": "146472",
       "producto": "GEOFORM",
-      "descripcion": "apple",
+      "descripcion": "apple?",
       "idCategoria": 0
     },
     {
@@ -86,7 +86,7 @@
       "estado": true,
       "precio": "128994",
       "producto": "TRASOLA",
-      "descripcion": "strawberry",
+      "descripcion": "strawberry x2",
       "idCategoria": 2
     },
     {
@@ -106,6 +106,15 @@
       "producto": "ZYTREK",
       "descripcion": "strawberry",
       "idCategoria": 1
+    },
+    {
+      "id": "10",
+      "codigo": "a232376e8-55gt-42a0-b3e9-e8awdsawc9t",
+      "estado": false,
+      "precio": "40202",
+      "producto": "Brayan",
+      "descripcion": "Prueba",
+      "idCategoria": "0"
     }
   ]
 }

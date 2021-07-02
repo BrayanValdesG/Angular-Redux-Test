@@ -1,0 +1,63 @@
+<form [formGroup]="productForm" (ngSubmit)="submitForm()" novalidate>
+  <h1 mat-dialog-title> {{ data.isNew ? 'Creando nuevo Producto' : 'Actualizando un Producto' }}
+  </h1>
+  <div mat-dialog-content class="content">
+    <mat-form-field>
+      <mat-label>ID</mat-label>
+      <input placeholder="ID" matInput formControlName="id">
+      <mat-error *ngIf="id?.invalid">
+        El ID es requerido
+      </mat-error>
+      <mat-error *ngIf="id?.errors?.pattern">
+        Solo se permiten números
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Código</mat-label>
+      <input placeholder="Código" matInput formControlName="codigo">
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Estado</mat-label>
+      <input placeholder="Estado" matInput formControlName="estado">
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Precio</mat-label>
+      <input placeholder="Precio" matInput formControlName="precio">
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Producto</mat-label>
+      <input placeholder="Producto" matInput formControlName="producto">
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>Descripción</mat-label>
+
+      <textarea placeholder="Descripción" matInput formControlName="descripcion"></textarea>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-label>ID Categoría</mat-label>
+
+      <input placeholder="ID Categoría" matInput formControlName="idCategoria">
+    </mat-form-field>
+    <br />
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button cdkFocusInitial type="submit">
+      {{ data.isNew ? 'Crear Producto' : 'Actualizar Producto' }}
+    </button>
+    <button mat-button type="button" (click)="onNoClick()">
+      Cancelar
+    </button>
+    <!-- <app-delete-button
+            (delete)="handleTaskDelete()"
+            *ngIf="!data.isNew"
+          ></app-delete-button> -->
+  </div>
+
+</form>

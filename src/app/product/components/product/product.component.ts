@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit {
   @Input() products: Product[] | any;
   @Input() displayedColumns: string[] = [];
   dataSource: MatTableDataSource<Product>;
+  @Output() openDialog = new EventEmitter();
 
 
   constructor() {
@@ -30,6 +31,10 @@ export class ProductComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.products);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  executeDialog(product?: Product) {
+    this.openDialog.emit(product ? product : null);
   }
 
 }

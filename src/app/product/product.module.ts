@@ -13,13 +13,15 @@ import { ProductComponent } from './components';
 import { ProductContainer } from './containers';
 import { ProductService } from './services';
 import { ProductEffects } from './store/product.effects';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductDialogComponent } from './dialogs/product-dialog/product-dialog.component';
 
 
 @NgModule({
   declarations: [
     ProductComponent,
-    ProductContainer
+    ProductContainer,
+    ProductDialogComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     StoreModule.forFeature('products', productReducer),
     EffectsModule.forFeature([ProductEffects]),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService]
 })
