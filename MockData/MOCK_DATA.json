@@ -106,15 +106,6 @@
       "producto": "ZYTREK",
       "descripcion": "strawberry",
       "idCategoria": 1
-    },
-    {
-      "id": 10,
-      "codigo": "Yellow",
-      "estado": true,
-      "precio": "146472",
-      "producto": "YEPA",
-      "descripcion": "Awesome",
-      "idCategoria": 1
     }
   ]
 }
