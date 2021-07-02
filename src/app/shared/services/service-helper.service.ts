@@ -27,12 +27,12 @@ export class ServiceHelperService<T, P> {
 
     if (remoteURL !== "") {
       return this.protocol.get<T>(remoteURL + requestURL, options)
-      .pipe(map(this.extractData))
-      .pipe(catchError(this.handleError));
+        .pipe(map(this.extractData))
+        .pipe(catchError(this.handleError));
     } else {
       return this.protocol.get<T>(this.url + requestURL, options)
-      .pipe(map(this.extractData))
-      .pipe(catchError(this.handleError));
+        .pipe(map(this.extractData))
+        .pipe(catchError(this.handleError));
     }
   }
 
@@ -42,8 +42,8 @@ export class ServiceHelperService<T, P> {
     };
 
     return this.protocol.post(uri, data, options)
-    .pipe(map(this.extractData))
-    .pipe(catchError(this.handleError));
+      .pipe(map(this.extractData))
+      .pipe(catchError(this.handleError));
   }
 
   putData(uri: string, data: P): Observable<T> {
@@ -52,20 +52,20 @@ export class ServiceHelperService<T, P> {
     };
 
     return this.protocol.put(uri, data, options)
-    .pipe(map(this.extractData))
-    .pipe(catchError(this.handleError));
+      .pipe(map(this.extractData))
+      .pipe(catchError(this.handleError));
   }
 
-  deleteData(uri: string, data: P): Observable<T> {
+  deleteData(uri: string, data?: P): Observable<T> {
 
-    return this.protocol.delete(uri, data)
-    .pipe(map(this.extractData))
-    .pipe(catchError(this.handleError));
+    return this.protocol.delete(uri)
+      .pipe(map(this.extractData))
+      .pipe(catchError(this.handleError));
   }
 
   // Return json request
   private extractData(res: any) {
-    if (res.status < 200 || res.status >= 300 ) {
+    if (res.status < 200 || res.status >= 300) {
       throw new Error("Bad response status: " + res.status);
     }
 
