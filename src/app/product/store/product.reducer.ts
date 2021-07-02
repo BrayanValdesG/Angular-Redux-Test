@@ -1,11 +1,11 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
-import { setItems, unsetItems } from './product.actions';
+import { setProducts, unsetProducts } from './product.actions';
 import { Product } from '@shared/models';
 
 
 export interface State {
-    productos: Product[];
+    products: Product[];
 }
 
 export interface AppStateWithProduct extends AppState {
@@ -13,14 +13,14 @@ export interface AppStateWithProduct extends AppState {
 }
 
 export const initialState: State = {
-    productos: [],
+    products: [],
 };
 
 // tslint:disable-next-line: variable-name
 const _productReducer = createReducer(initialState,
 
-    on(setItems, (state, { products }) => ({ ...state, products: [...products] })),
-    on(unsetItems, (state) => ({ ...state, products: [] })),
+    on(setProducts, (state, { products }) => ({ ...state, products: [...products] })),
+    on(unsetProducts, (state) => ({ ...state, products: [] })),
 );
 
 export function productReducer(state: State | undefined, action: Action): State {

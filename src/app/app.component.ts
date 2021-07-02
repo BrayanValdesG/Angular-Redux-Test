@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Product } from '@shared/models';
-import { ConfigurationServiceService, ServiceHelperService } from '@shared/services';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +7,7 @@ import { ConfigurationServiceService, ServiceHelperService } from '@shared/servi
 })
 export class AppComponent {
 
-  constructor(private serviceHelper: ServiceHelperService<Product[], any>, private serviceConfig: ConfigurationServiceService) {
-
-    this.serviceHelper.getData('', `${this.serviceConfig.settings.apiServer}${this.serviceConfig.settings.ServicesURI["Products"]}`).subscribe((productos: Product[]) => {
-      console.log(productos);
-    });
+  constructor() {
 
     // const product: Product = {
     //   id: 10,
@@ -28,9 +22,5 @@ export class AppComponent {
     // this.serviceHelper.postData(`http://localhost:3000${this.serviceConfig.settings.ServicesURI["Products"]}`, product).subscribe(res => {
     //   console.log(res);
     // })
-
-    // this.serviceHelper.getData('', `http://localhost:3000${this.serviceConfig.settings.ServicesURI["Products"]}`).subscribe((productos: Product[]) => {
-    //   console.log(productos);
-    // });
   }
 }
