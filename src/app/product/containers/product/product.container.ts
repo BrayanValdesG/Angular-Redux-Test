@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '@shared/models';
 import { Store } from '@ngrx/store';
@@ -14,7 +14,7 @@ import { ProductDialogComponent } from '../../dialogs/product-dialog/product-dia
   `,
 
 })
-export class ProductContainer implements OnInit {
+export class ProductContainer {
 
   products$: Observable<Product[]>;
   displayedColumns: string[];
@@ -22,10 +22,6 @@ export class ProductContainer implements OnInit {
   constructor(private store: Store<AppState>, private dialog: MatDialog) {
     this.products$ = this.store.select(getAllProducts);
     this.displayedColumns = ['id', 'codigo', 'estado', 'precio', 'producto', 'descripcion', 'idCategoria'];
-  }
-
-  ngOnInit(): void {
-
   }
 
   openDialog(product?: Product): void {

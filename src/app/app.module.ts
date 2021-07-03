@@ -33,7 +33,6 @@ import { ProductResolver } from './product/product.resolver';
       logOnly: environment.production // Restrict extension to log-only mode
     }),
     EffectsModule.forRoot([]),
-
     FormsModule,
     ReactiveFormsModule
   ],

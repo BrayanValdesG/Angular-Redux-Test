@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Update } from '@ngrx/entity';
 import { Store } from '@ngrx/store';
 import { Product } from '@shared/models';
@@ -16,11 +17,14 @@ export class ProductDialogComponent implements OnInit {
 
   productForm: FormGroup;
 
-  constructor(public dialogRef: MatDialogRef<ProductDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private store: Store<AppState>) {
+  constructor(public dialogRef: MatDialogRef<ProductDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private fb: FormBuilder, private store: Store<AppState>,
+    private snackBar: MatSnackBar) {
     this.productForm = this.fb.group({
       id: ["", [Validators.required, Validators.pattern("^[0-9]{0,}$")]],
       codigo: ["", [Validators.required]],
-      estado: ["", [Validators.required]],
+      estado: [true, [Validators.required]],
       precio: ["", [Validators.required]],
       producto: ["", [Validators.required, Validators.pattern('([A-z]*\\s)*')]],
       // producto: ["", [Validators.required, Validators.pattern('^[a-zA-Z\s]+{2,254}')]],
@@ -73,6 +77,7 @@ export class ProductDialogComponent implements OnInit {
         idCategoria: this.idCategoria?.value
       };
       this.store.dispatch(productActionTypes.createProduct({ product }));
+      this.snackBar.open('Se creo un nuevo Producto', '', { duration: 4000 });
       this.onNoClick();
     } else {
       const update: Update<Product> = {
@@ -83,12 +88,14 @@ export class ProductDialogComponent implements OnInit {
         }
       };
       this.store.dispatch(productActionTypes.updateProduct({ update }));
+      this.snackBar.open('Se modifico un Producto', '', { duration: 4000 });
       this.onNoClick();
     }
   }
 
   handleProductDelete() {
     this.store.dispatch(productActionTypes.deleteProduct({ productId: this.id?.value }));
+    this.snackBar.open('Se elimino un Producto', '', { duration: 4000 });
     this.onNoClick();
   }
 

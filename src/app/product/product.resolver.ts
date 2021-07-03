@@ -19,7 +19,7 @@ export class ProductResolver implements Resolve<Observable<any>> {
             .pipe(
                 select(areProductsLoaded),
                 tap((productsLoaded) => {
-                    console.log('111', productsLoaded);
+                    // console.log('111', productsLoaded);
                     if (!productsLoaded) {
                         this.store.dispatch(loadProducts());
                     }

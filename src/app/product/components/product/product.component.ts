@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '@shared/models';
 import { Observable } from 'rxjs';
 
@@ -7,19 +7,11 @@ import { Observable } from 'rxjs';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
 
   @Input() products$: Observable<Product[]> | undefined;
   @Input() displayedColumns: string[] = [];
   @Output() openDialog = new EventEmitter();
-
-
-  constructor() {
-
-  }
-
-  ngOnInit(): void {
-  }
 
   executeDialog(product?: Product) {
     this.openDialog.emit(product ? product : null);

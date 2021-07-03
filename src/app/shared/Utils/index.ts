@@ -1,3 +1,3 @@
 import * as endPoints from './endPoints.json';
 
-export {endPoints};
+export { endPoints };

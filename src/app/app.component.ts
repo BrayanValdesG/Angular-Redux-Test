@@ -7,20 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() {
-
-    // const product: Product = {
-    //   id: 10,
-    //   codigo: "Yellow",
-    //   "estado": true,
-    //   "precio": "146472",
-    //   "producto": "YEPA",
-    //   "descripcion": "Awesome",
-    //   "idCategoria": 1
-    // };
-
-    // this.serviceHelper.postData(`http://localhost:3000${this.serviceConfig.settings.ServicesURI["Products"]}`, product).subscribe(res => {
-    //   console.log(res);
-    // })
-  }
 }

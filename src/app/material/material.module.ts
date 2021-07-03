@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -28,7 +29,8 @@ const MODULES_MATERIAL = [
   MatInputModule,
   MatSnackBarModule,
   MatTableModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSelectModule
 ];
 
 
