@@ -29,7 +29,6 @@ export class ProductContainer implements OnInit {
   }
 
   openDialog(product?: Product): void {
-    console.log(product);
     const dialogRef = this.dialog.open(ProductDialogComponent, {
       width: '600px',
       data: product

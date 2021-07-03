@@ -19,11 +19,10 @@ export class ProductDialogComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<ProductDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private store: Store<AppState>) {
     this.productForm = this.fb.group({
       id: ["", [Validators.required, Validators.pattern("^[0-9]{0,}$")]],
-      // id: ["", [Validators.required, Validators.pattern("^[0-9]*$")]],
       codigo: ["", [Validators.required]],
       estado: ["", [Validators.required]],
       precio: ["", [Validators.required]],
-      producto: ["", [Validators.required]],
+      producto: ["", [Validators.required, Validators.pattern('([A-z]*\\s)*')]],
       // producto: ["", [Validators.required, Validators.pattern('^[a-zA-Z\s]+{2,254}')]],
       descripcion: ["", [Validators.required]],
       idCategoria: ["", [Validators.required]]
@@ -86,6 +85,11 @@ export class ProductDialogComponent implements OnInit {
       this.store.dispatch(productActionTypes.updateProduct({ update }));
       this.onNoClick();
     }
+  }
+
+  handleProductDelete() {
+    this.store.dispatch(productActionTypes.deleteProduct({ productId: this.id?.value }));
+    this.onNoClick();
   }
 
 }

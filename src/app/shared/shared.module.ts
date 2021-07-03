@@ -6,7 +6,7 @@ import { MaterialModule } from '@material/material.module';
 import { LayoutModule } from '@angular/cdk/layout';
 
 import { ConfigurationServiceService, ServiceHelperService } from './services';
-import { ShellComponent } from './components';
+import { ShellComponent, DeleteButtonComponent } from './components';
 
 const MODULES = [
   MaterialModule,
@@ -19,7 +19,8 @@ const SERVICES = [
 ];
 
 const COMPONENTS = [
-  ShellComponent
+  ShellComponent,
+  DeleteButtonComponent
 ];
 
 

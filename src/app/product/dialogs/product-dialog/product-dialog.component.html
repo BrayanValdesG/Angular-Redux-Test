@@ -5,10 +5,10 @@
     <mat-form-field>
       <mat-label>ID</mat-label>
       <input placeholder="ID" matInput formControlName="id">
-      <mat-error *ngIf="id?.invalid">
+      <mat-error *ngIf="id?.errors?.required && id?.touched">
         El ID es requerido
       </mat-error>
-      <mat-error *ngIf="id?.errors?.pattern">
+      <mat-error *ngIf="id?.errors?.pattern && id?.touched">
         Solo se permiten números
       </mat-error>
     </mat-form-field>
@@ -31,6 +31,12 @@
     <mat-form-field>
       <mat-label>Producto</mat-label>
       <input placeholder="Producto" matInput formControlName="producto">
+      <mat-error *ngIf="producto?.errors?.required && producto?.touched">
+        El Producto es requerido
+      </mat-error>
+      <mat-error *ngIf="producto?.errors?.pattern && producto?.touched">
+        Solo se permiten letras
+      </mat-error>
     </mat-form-field>
     <br />
     <mat-form-field>
@@ -48,16 +54,13 @@
 
   </div>
   <div mat-dialog-actions>
-    <button mat-button cdkFocusInitial type="submit">
+    <button mat-button cdkFocusInitial type="submit" [disabled]="!productForm.valid">
       {{ data.isNew ? 'Crear Producto' : 'Actualizar Producto' }}
     </button>
     <button mat-button type="button" (click)="onNoClick()">
       Cancelar
     </button>
-    <!-- <app-delete-button
-            (delete)="handleTaskDelete()"
-            *ngIf="!data.isNew"
-          ></app-delete-button> -->
+    <app-delete-button (delete)="handleProductDelete()" *ngIf="!data.isNew"></app-delete-button>
   </div>
 
 </form>

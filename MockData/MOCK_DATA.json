@@ -106,15 +106,6 @@
       "producto": "ZYTREK",
       "descripcion": "strawberry",
       "idCategoria": 1
-    },
-    {
-      "id": "10",
-      "codigo": "a232376e8-55gt-42a0-b3e9-e8awdsawc9t",
-      "estado": false,
-      "precio": "40202",
-      "producto": "Brayan",
-      "descripcion": "Prueba",
-      "idCategoria": "0"
     }
   ]
 }
