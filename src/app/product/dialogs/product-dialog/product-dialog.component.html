@@ -20,7 +20,14 @@
     <br />
     <mat-form-field>
       <mat-label>Estado</mat-label>
-      <input placeholder="Estado" matInput formControlName="estado">
+      <mat-select formControlName="estado">
+        <mat-option [value]="true">
+          Activo
+        </mat-option>
+        <mat-option [value]="false">
+          Inactivo
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     <br />
     <mat-form-field>
