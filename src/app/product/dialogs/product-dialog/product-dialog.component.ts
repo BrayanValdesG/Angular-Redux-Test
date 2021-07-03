@@ -26,7 +26,7 @@ export class ProductDialogComponent implements OnInit {
       codigo: ["", [Validators.required]],
       estado: [true, [Validators.required]],
       precio: ["", [Validators.required]],
-      producto: ["", [Validators.required, Validators.pattern('([A-z]*\\s)*')]],
+      producto: ["", [Validators.required]],
       // producto: ["", [Validators.required, Validators.pattern('^[a-zA-Z\s]+{2,254}')]],
       descripcion: ["", [Validators.required]],
       idCategoria: ["", [Validators.required]]

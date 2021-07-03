@@ -15,13 +15,15 @@ import { ProductService } from './services';
 import { ProductEffects } from './store/product.effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductDialogComponent } from './dialogs/product-dialog/product-dialog.component';
+import { FilterEstadoPipe } from './pipes/filter-estado.pipe';
 
 
 @NgModule({
   declarations: [
     ProductComponent,
     ProductContainer,
-    ProductDialogComponent
+    ProductDialogComponent,
+    FilterEstadoPipe
   ],
   imports: [
     CommonModule,
